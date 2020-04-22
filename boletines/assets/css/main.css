@@ -1,0 +1,203 @@
+   /* Amarillo Amber: #ffc400
+      Negro medio: #2d3436
+      Rojo claro (boton cancelar): #ff4d4d
+      Verde claro (boton ok): #32ff7e
+   */
+   .container{
+    background: #11998e; /* Color respaldo por si los otros no se llegan a ver en un navegador viejo */
+    background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+    background: linear-gradient(to right, #38ef7d, #11998e);
+    height: 100vh;/* Representa el alto total de la pantalla */
+    display: flex;  
+    /* Centrar el elemento */
+    align-items: center;
+    justify-content: center;
+   }
+  
+   .content{
+    max-width: 960px;
+    width: 100%;
+    height: 80vh;
+    background-color: white;
+    /* SOMBREADO - Este es el div class content de nix.html */
+    /* box-shadow: diferenciaHorizonal ; diferenciaVertical; desenfoque;amplitud;color*/
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    border-radius:7px;
+    position: relative;
+    padding: 1em;
+    /* Como se comporta el elemento que sale del contenido; para que scrolee hacia arriba y abajo pero no hacia los lados */
+    overflow: scroll;
+   }
+  /*Pasamos las filas a columnas*/
+  td{
+    display:block;
+    width: 100%;
+  }
+    /*Nos permite seleccionar un elemento basado en su posicion cuando esta al lado de otras etiquetas
+     del mismo tipo Ej: Selecciona el numero tal(1), del tipo (td) en este caso*/ 
+  td:nth-of-type(1){
+    font-size: 1.5em;
+    font-weight: bold;
+    color:black;
+  }
+  /*Ocultamos los encabezados*/
+  th{
+    display:none;
+  }
+  
+    /* Arriba ponemos el content en forma relativa, y este como abosulute
+       para que cuando modifiquemos la X se mueva en base a ese contenedor y no a la pantalla entera*/
+  .actions{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+  }
+
+  .close{
+    height: 40px;
+    width: 40px;
+    color: black;
+    border-radius: 50%;
+    background-color: #38ef7d;
+    /* Para que no ignore los tamaños*/
+    /* display: inline-block; (ya tiene un display y funciona asi ver porque)*/
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-weight: 300px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+    /* Distancia en el parrafo*/
+    .parrafo{
+      line-height: 1.8em;
+      font-weight: 200;
+    }
+
+   /* Ej: los boton-pago dentro de la pagina sean amarillos */
+   #boton-pago{
+       background-color: yellow;
+   }
+
+
+  /* Regula los bordes en la tabla 
+   td{
+    border:solid 1px
+  }
+  */
+
+   html{
+    font-family: 'Roboto Condensed', sans-serif;
+   }
+
+  /*Hacer en hoja de estilos, le decimos que la imagen no puede ocupar un ancho de mas del 100% */
+   img{
+     max-width: 100%;
+   }
+
+   a:hover{
+     opacity: 0.9;
+   }
+
+    /* Propiedades para el texto */
+   a{
+     text-decoration: none;
+     color:#ffc400;
+   }
+
+   /* UPPERCASE todo en matus, lowercase en min, capitalize con la primera en mayus */
+   .tit_boliche{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2em;
+   }
+
+    /* BORDES */
+    /*Border bottom para que la linea solo salga abajo del titulo */
+    /*Aplicamos ShorthandProperties y usamos todo en una linea (no importa el orden que lo usemos) */   
+   .title-item{
+     /*border-bottom: solid;
+     border-width: 2px;
+     border-color: #4db6ac;
+     */
+     border-bottom: solid 2px #4db6ac ;
+     padding-bottom: 1em;
+   }
+
+   .address{
+     font-weight: bold;
+     color: #38ef7d;
+     font-size: 1.2em;
+     margin-top: 2em;
+      /* el display por defecto estaba inline entonces ignora el margen */
+     display: inline-block;
+   }
+
+   .main-image{
+     float: left;
+     margin-right: 1em;
+     height:350px;
+     width:350px;
+   }
+
+   .position{
+     background-color:#4db6ac;
+     color: white;
+     padding: 0.5em;
+     margin-right: 0.5em;
+     /*Se aplica a todas las esquinas (como el border botom de arruba usamos Shorthand)
+     border-top-left-radius
+     border-top-right-radius
+     border-bottom-left-radius
+     border-bottom-right-radius
+     */ 
+     border-radius:7px;
+   }
+
+    /* Todo lo que ponga aca se va a usar en lo que tenga declarado como class "table" */
+    /* Definimos que abarque todo el ancho de la pantalla con width 100% */
+   .table{
+    width: 100%;
+    border-spacing: 0px;
+   }
+
+  .table td, .table th{
+    padding: 1em;
+    text-align: left;
+  }
+
+  /* odd los impares/ even los pares*/
+  /* Pintamos en verde las filas pares para eso usamos la propiedad nth-child*/
+  .table tr:nth-child(even) {background-color: #32ff7eed;}
+
+  .fa-star{
+    color: #ffc400;
+  }
+
+    /* MEDIA QUERIES - Definimos propiedades para pantallas que tengan un alto menor a 550px*/
+  @media (min-height:550px){
+    .content{
+      height: 500px;
+    }
+  }
+
+  /*Aca modificamos para que se adapte a una pantalla mas grande con las mediaqueris*/
+  /* Cuando el ancho min. es de 900px*/
+  @media(min-width:900px){
+     /* Lo convertimos en tablas*/
+    th{
+      display: table-cell;
+    }
+    td{
+      display: table-cell;
+      width: auto;
+    }
+    td:nth-of-type(1){
+      font-size: 1em;
+    }
+    .content{
+      padding: 1.8em;
+    } 
+  }
+ 
